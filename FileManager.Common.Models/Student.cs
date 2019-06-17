@@ -24,6 +24,9 @@ namespace FileManager.Common.Models
 
         public override bool Equals(object obj)
         {
+            if (obj == null)
+                return false;
+
             Student otherStudent = (Student)obj;
             return this.Name == otherStudent.Name
                 && this.Surname == otherStudent.Surname
