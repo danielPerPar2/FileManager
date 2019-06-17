@@ -31,9 +31,11 @@ namespace FileManager.DataAccess.DAO.Tests
             studentDaoTxt = (StudentDAOTxt)daoFactory.CreateStudentDAOTxt();
             string dateString = day + "/" + month + "/" + year;
 
+            //We can use Convert.ToDateTime(dateString) instead of the utility method StringToDateTimeES(dateString)
             Student student = new Student(id, name, surname, DateUtilities.StringToDateTimeES(dateString));
             Student insertedStudent = studentDaoTxt.Add(student);
 
+            //We can use Assert.AreEqual(student, insertedStudent)
             Assert.IsTrue(student.Equals(insertedStudent));
 
             //A file Debugstudents.txt is generated in the test project - no need to delete the last inserted student.
