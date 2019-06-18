@@ -98,5 +98,15 @@ namespace FileManager.DataAccess.DAO
             Student readStudent = new Student(id, name, surname, dateOfBirth);
             return readStudent;
         }
+
+        public Student FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Student Update(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

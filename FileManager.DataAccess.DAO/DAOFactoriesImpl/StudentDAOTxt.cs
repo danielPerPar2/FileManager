@@ -22,7 +22,7 @@ namespace FileManager.DataAccess.DAO
         public Student Add(Student student)
         {           
             WriteStudent(student);
-            Student readStudent = ReadStudent();
+            Student readStudent = FindById(student.StudentId);
             return readStudent;
         }       
         private void WriteStudent(Student student)
@@ -53,18 +53,53 @@ namespace FileManager.DataAccess.DAO
                 outputFile.Dispose();
             }
         }
-        private Student ReadStudent()
+        public Student FindById(int id)
         {
-            string lastLine = File.ReadLines(FilePath).Last();
-            string[] splitStudent = lastLine.Split(new char[] { ',' });
+            List<string> lines = File.ReadLines(FilePath).ToList<string>();
+            foreach(string line in lines)
+            {
+                string[] splitLine = line.Split(new char[] { ',' });
+                int parsedId = ParseString(splitLine[0]);
+                if(parsedId == id)
+                {
+                    string name = splitLine[1];
+                    string surname = splitLine[2];
+                    string dateString = splitLine[3];
+                    DateTime dateOfBirth = ConvertFromString(dateString);
+                    return new Student(id, name, surname, dateOfBirth);
+                }               
+            }
+            return null;
+        }
 
-            int id = Int32.Parse(splitStudent[0]);
-            string name = splitStudent[1];
-            string surname = splitStudent[2];
-            DateTime dayOfBirth = DateUtilities.StringToDateTimeES(splitStudent[3]);
-            Student student = new Student(id, name, surname, dayOfBirth);
+        private int ParseString(string idString)
+        {
+            try
+            {
+                return Int32.Parse(idString);
+            }
+            catch(Exception ex)
+            {
+                Console.Write(ex.Message);
+                throw;
+            }
+        }
 
-            return student;
+        private DateTime ConvertFromString(string dateString)
+        {
+            try
+            {
+                return Convert.ToDateTime(dateString);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                throw;
+            }
+        }
+        public Student Update(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

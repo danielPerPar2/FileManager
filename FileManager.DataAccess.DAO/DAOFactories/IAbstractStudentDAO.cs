@@ -10,5 +10,9 @@ namespace FileManager.DataAccess.DAO
     public interface IAbstractStudentDAO
     {
         Student Add(Student student);
+
+        Student FindById(int id);
+
+        Student Update(int id);
     }
 }

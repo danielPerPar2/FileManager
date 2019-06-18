@@ -28,7 +28,7 @@ namespace FileManager.DataAccess.DAO.Tests
         public void AddTest(int id, string name, string surname, string day, string month, string year)
         {
             daoFactory = new StudentDAOFactory();
-            studentDaoXml = daoFactory.CreateStudentDAOTxt();
+            studentDaoXml = daoFactory.CreateStudentDAOXml();
             string dateString = day + "/" + month + "/" + year;
 
             Student student = new Student(id, name, surname, DateUtilities.StringToDateTimeES(dateString));

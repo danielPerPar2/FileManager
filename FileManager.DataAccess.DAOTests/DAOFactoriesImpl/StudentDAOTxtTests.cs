@@ -36,10 +36,23 @@ namespace FileManager.DataAccess.DAO.Tests
             Student insertedStudent = studentDaoTxt.Add(student);
 
             //We can use Assert.AreEqual(student, insertedStudent)
-            Assert.IsTrue(student.Equals(insertedStudent));
+            Assert.IsTrue(student.Equals(insertedStudent));            
+        }
 
-            //A file Debugstudents.txt is generated in the test project - no need to delete the last inserted student.
-            //studentDaoTxt.DeleteLastInsertedStudent();
+        [TestMethod()]
+        [DataRow(0)]
+        public void FindByIdTest(int studentId)
+        {
+            daoFactory = new StudentDAOFactory();
+            studentDaoTxt = daoFactory.CreateStudentDAOTxt();
+            Student found = studentDaoTxt.FindById(studentId);
+            Assert.IsNotNull(found);
+        }
+
+        [TestMethod()]
+        public void UpdateTest()
+        {
+            Assert.Fail();
         }
     }
 }

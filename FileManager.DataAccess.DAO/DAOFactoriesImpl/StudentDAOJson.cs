@@ -97,5 +97,15 @@ namespace FileManager.DataAccess.DAO
             Student student = students.Last<Student>();
             return student;
         }
+
+        public Student FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Student Update(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
