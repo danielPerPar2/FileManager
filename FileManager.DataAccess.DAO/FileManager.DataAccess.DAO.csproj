@@ -48,22 +48,10 @@
     <Compile Include="DAOFactoriesImpl\StudentDAOFactory.cs" />
     <Compile Include="DAOFactories\IAbstractStudentDAO.cs" />
     <Compile Include="DAOFactories\IAbstractStudentDAOFactory.cs" />
-    <Compile Include="ReaderFactoriesImp\ReaderFactory.cs" />
-    <Compile Include="ReaderFactoriesImp\ReaderJson.cs" />
-    <Compile Include="ReaderFactoriesImp\ReaderTxt.cs" />
-    <Compile Include="ReaderFactoriesImp\ReaderXml.cs" />
-    <Compile Include="ReaderFactories\IReader.cs" />
-    <Compile Include="ReaderFactories\IReaderFactory.cs" />
-    <Compile Include="WriterFactoriesImpl\WriterFactory.cs" />
-    <Compile Include="WriterFactoriesImpl\WriterXml.cs" />
-    <Compile Include="WriterFactories\IWriterFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DAOFactoriesImpl\StudentDAOJson.cs" />
     <Compile Include="DAOFactoriesImpl\StudentDAOTxt.cs" />
     <Compile Include="DAOFactoriesImpl\StudentDAOXml.cs" />
-    <Compile Include="WriterFactories\IWriter.cs" />
-    <Compile Include="WriterFactoriesImpl\WriterJson.cs" />
-    <Compile Include="WriterFactoriesImpl\WriterTxt.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FileManager.Common.Models\FileManager.Common.Models.csproj">
