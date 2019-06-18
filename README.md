@@ -1,3 +1,4 @@
-FileManager exercise
+FileManager exercise.
 
-persisted files are inside Debug folders in WinSite folder.
+The persisted files are inside the Debug folder in the WinSite folder.
+A UML diagram is provided as a FileManager.dia file.
