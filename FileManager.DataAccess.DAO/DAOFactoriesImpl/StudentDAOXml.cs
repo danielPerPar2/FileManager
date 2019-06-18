@@ -27,7 +27,7 @@ namespace FileManager.DataAccess.DAO
         {           
             WriteStudent(student);
 
-            Student readStudent = ReadStudent();
+            Student readStudent = FindById(student.StudentId);
             return readStudent;
         }
 
@@ -63,47 +63,36 @@ namespace FileManager.DataAccess.DAO
                 new XElement("dateOfBirth", DateUtilities.DateTimeToStringES(student.DateOfBirth)));
 
             return studentElement;
-        }
-        private Student ReadStudent()
-        {
-            XElement lastStudent = ReadLastStudentFromFile();
-            List<string> fields = ReadStudentFields(lastStudent);
-            Student readStudent = CreateStudentFromFields(fields);
-            return readStudent;
-        }
-
-        private XElement ReadLastStudentFromFile()
-        {
-            XDocument doc = XDocument.Load(FilePath);
-            XElement root = doc.Root;
-            XElement lastStudent = root.Elements("student").Last();
-            return lastStudent;
-        }
-
-        private List<string> ReadStudentFields(XElement studentElement)
-        {
-            List<string> fields = new List<string>();
-            foreach (XElement e in studentElement.Elements())
-            {
-                fields.Add(e.Value);
-            }
-            return fields;
-        }
-        private Student CreateStudentFromFields(List<string> fields)
-        {
-            int id = Int32.Parse(fields[0]);
-            string name = fields[1];
-            string surname = fields[2];
-            DateTime dateOfBirth = DateUtilities.StringToDateTimeES(fields[3]);
-            Student readStudent = new Student(id, name, surname, dateOfBirth);
-            return readStudent;
-        }
+        }        
 
         public Student FindById(int id)
         {
-            throw new NotImplementedException();
+            var student = from element in xDocument.Element("students").Elements()
+                          where element.Element("id").Value.Equals(id.ToString())
+                          select element;
+            if (student == null)
+            {
+                return null;
+            }
+            XElement found = GetFirstElement(student);
+            string name = found.Element("name").Value;
+            string surname = found.Element("surname").Value;
+            DateTime dateOfBirth = Convert.ToDateTime(found.Element("dateOfBirth").Value);
+            return new Student(id, name, surname, dateOfBirth);
         }
 
+        private XElement GetFirstElement(IEnumerable<XElement> elements)
+        {
+            try
+            {
+                return elements.First();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                throw;
+            }
+        }
         public Student Update(int id)
         {
             throw new NotImplementedException();

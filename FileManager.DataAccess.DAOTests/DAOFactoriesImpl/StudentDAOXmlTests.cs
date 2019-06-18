@@ -24,7 +24,7 @@ namespace FileManager.DataAccess.DAO.Tests
         }
 
         [TestMethod()]
-        [DataRow(0, "Carlos", "López", "01", "02", "2000")]
+        [DataRow(0, "CarlosTest", "López", "01", "02", "2000")]
         public void AddTest(int id, string name, string surname, string day, string month, string year)
         {
             daoFactory = new StudentDAOFactory();
@@ -35,6 +35,12 @@ namespace FileManager.DataAccess.DAO.Tests
             Student insertedStudent = studentDaoXml.Add(student);
 
             Assert.IsTrue(student.Equals(insertedStudent));
+        }
+
+        [TestMethod()]
+        public void UpdateTest()
+        {
+            Assert.Fail();
         }
     }
 }
