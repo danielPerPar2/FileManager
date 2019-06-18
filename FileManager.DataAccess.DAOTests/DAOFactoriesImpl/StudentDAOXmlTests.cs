@@ -38,6 +38,16 @@ namespace FileManager.DataAccess.DAO.Tests
         }
 
         [TestMethod()]
+        [DataRow(0)]
+        public void FindByIdTest(int studentId)
+        {
+            daoFactory = new StudentDAOFactory();
+            studentDaoXml = daoFactory.CreateStudentDAOTxt();
+            Student found = studentDaoXml.FindById(studentId);
+            Assert.IsNotNull(found);
+        }
+
+        [TestMethod()]
         public void UpdateTest()
         {
             Assert.Fail();

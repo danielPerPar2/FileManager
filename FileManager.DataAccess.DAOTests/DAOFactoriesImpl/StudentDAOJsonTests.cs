@@ -24,7 +24,7 @@ namespace FileManager.DataAccess.DAO.Tests
         }
 
         [TestMethod()]
-        [DataRow(0, "Carlos", "López", "01", "02", "2000")]
+        [DataRow(0, "TestCarlos", "López", "01", "02", "2000")]
         public void AddTest(int id, string name, string surname, string day, string month, string year)
         {
             daoFactory = new StudentDAOFactory();
@@ -34,6 +34,22 @@ namespace FileManager.DataAccess.DAO.Tests
             Student insertedStudent = studentDaoJson.Add(student);
 
             Assert.IsTrue(student.Equals(insertedStudent));
+        }
+
+        [TestMethod()]
+        [DataRow(0)]
+        public void FindByIdTest(int studentId)
+        {
+            daoFactory = new StudentDAOFactory();
+            studentDaoJson = daoFactory.CreateStudentDAOTxt();
+            Student found = studentDaoJson.FindById(studentId);
+            Assert.IsNotNull(found);
+        }
+
+        [TestMethod()]
+        public void UpdateTest()
+        {
+            Assert.Fail();
         }
     }
 }

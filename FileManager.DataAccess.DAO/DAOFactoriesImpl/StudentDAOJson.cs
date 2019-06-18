@@ -31,7 +31,7 @@ namespace FileManager.DataAccess.DAO
         public Student Add(Student student)
         {
             WriteStudent(student);
-            Student readStudent = ReadStudent();
+            Student readStudent = FindById(student.StudentId);
             return readStudent;
         }
 
@@ -90,17 +90,18 @@ namespace FileManager.DataAccess.DAO
             }
         }
 
-        public Student ReadStudent()
+        public Student FindById(int id)
         {
             string jsonString = ReadJsonFile();
             List<Student> students = JsonConvert.DeserializeObject<List<Student>>(jsonString, settings);
-            Student student = students.Last<Student>();
-            return student;
-        }
-
-        public Student FindById(int id)
-        {
-            throw new NotImplementedException();
+            foreach (Student student in students)
+            {
+                if (id == student.StudentId)
+                {
+                    return student;
+                }
+            }
+            return null;
         }
 
         public Student Update(int id)
