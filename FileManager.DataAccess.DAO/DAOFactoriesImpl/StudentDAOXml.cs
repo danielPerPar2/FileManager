@@ -9,8 +9,8 @@ using FileManager.DataAccess.DAO.WriterFactoriesImpl;
 
 namespace FileManager.DataAccess.DAO
 {
-    public class StudentDAOXml : IAbstractStudentDAO, IStudentDAO
-    {
+    public class StudentDAOXml : IAbstractStudentDAO
+    { 
         private WriterFactory writerFactoryXml = null;
         private WriterXml writerXml = null;
         private ReaderFactory readerFactoryXml = null;

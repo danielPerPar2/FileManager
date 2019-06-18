@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FileManager.DataAccess.DAO
-{
+{    
     public interface IAbstractStudentDAOFactory
     {
         IAbstractStudentDAO CreateStudentDAOTxt();

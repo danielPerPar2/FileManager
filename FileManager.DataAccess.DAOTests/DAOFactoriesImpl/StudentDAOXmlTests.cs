@@ -15,7 +15,7 @@ namespace FileManager.DataAccess.DAO.Tests
     public class StudentDAOXmlTests
     {
         IAbstractStudentDAOFactory daoFactory = null;
-        IStudentDAO studentDaoXml = null;
+        IAbstractStudentDAO studentDaoXml = null;
 
         [TestMethod()]
         public void StudentDAOXmlTest()
@@ -28,7 +28,7 @@ namespace FileManager.DataAccess.DAO.Tests
         public void AddTest(int id, string name, string surname, string day, string month, string year)
         {
             daoFactory = new StudentDAOFactory();
-            studentDaoXml = (StudentDAOTxt)daoFactory.CreateStudentDAOTxt();
+            studentDaoXml = daoFactory.CreateStudentDAOTxt();
             string dateString = day + "/" + month + "/" + year;
 
             Student student = new Student(id, name, surname, DateUtilities.StringToDateTimeES(dateString));

@@ -9,7 +9,7 @@ using FileManager.DataAccess.DAO.WriterFactoriesImpl;
 
 namespace FileManager.DataAccess.DAO
 {
-    public class StudentDAOJson : IAbstractStudentDAO, IStudentDAO
+    public class StudentDAOJson : IAbstractStudentDAO
     {
         private WriterFactory writerFactoryJson = null;
         private WriterJson writerJson = null;

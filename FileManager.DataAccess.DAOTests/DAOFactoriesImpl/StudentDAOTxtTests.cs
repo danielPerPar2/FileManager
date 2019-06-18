@@ -15,7 +15,7 @@ namespace FileManager.DataAccess.DAO.Tests
     public class StudentDAOTxtTests
     {
         IAbstractStudentDAOFactory daoFactory = null;
-        IStudentDAO studentDaoTxt = null;
+        IAbstractStudentDAO studentDaoTxt = null;
 
         [TestMethod()]
         public void StudentDAOTxtTest()
@@ -28,7 +28,7 @@ namespace FileManager.DataAccess.DAO.Tests
         public void AddTest(int id, string name, string surname, string day, string month, string year)
         {
             daoFactory = new StudentDAOFactory();
-            studentDaoTxt = (StudentDAOTxt)daoFactory.CreateStudentDAOTxt();
+            studentDaoTxt = daoFactory.CreateStudentDAOTxt();
             string dateString = day + "/" + month + "/" + year;
 
             //We can use Convert.ToDateTime(dateString) instead of the utility method StringToDateTimeES(dateString)

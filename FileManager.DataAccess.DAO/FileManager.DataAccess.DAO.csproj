@@ -48,7 +48,6 @@
     <Compile Include="DAOFactoriesImpl\StudentDAOFactory.cs" />
     <Compile Include="DAOFactories\IAbstractStudentDAO.cs" />
     <Compile Include="DAOFactories\IAbstractStudentDAOFactory.cs" />
-    <Compile Include="DAO\IStudentDAO.cs" />
     <Compile Include="ReaderFactoriesImp\ReaderFactory.cs" />
     <Compile Include="ReaderFactoriesImp\ReaderJson.cs" />
     <Compile Include="ReaderFactoriesImp\ReaderTxt.cs" />

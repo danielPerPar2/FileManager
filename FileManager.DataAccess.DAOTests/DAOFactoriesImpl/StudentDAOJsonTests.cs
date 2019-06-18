@@ -15,7 +15,7 @@ namespace FileManager.DataAccess.DAO.Tests
     public class StudentDAOJsonTests
     {
         IAbstractStudentDAOFactory daoFactory = null;
-        IStudentDAO studentDaoJson = null;
+        IAbstractStudentDAO studentDaoJson = null;
 
         [TestMethod()]
         public void StudentDAOJsonTest()
@@ -28,7 +28,7 @@ namespace FileManager.DataAccess.DAO.Tests
         public void AddTest(int id, string name, string surname, string day, string month, string year)
         {
             daoFactory = new StudentDAOFactory();
-            studentDaoJson = (StudentDAOTxt)daoFactory.CreateStudentDAOTxt();
+            studentDaoJson = daoFactory.CreateStudentDAOJson();
             string dateString = day + "/" + month + "/" + year;
             Student student = new Student(id, name, surname, DateUtilities.StringToDateTimeES(dateString));
             Student insertedStudent = studentDaoJson.Add(student);

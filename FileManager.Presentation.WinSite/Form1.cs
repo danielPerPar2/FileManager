@@ -16,11 +16,11 @@ namespace FileManager.Presentation.WinSite
 {
     public partial class Form1 : Form
     {
-        private StudentDAOFactory studentDAOFactory = null;
+        private IAbstractStudentDAOFactory studentDAOFactory = null;
         
-        private StudentDAOTxt studentDAOTxt = null;
-        private StudentDAOXml studentDAOXml = null;
-        private StudentDAOJson studentDAOJson = null;
+        private IAbstractStudentDAO studentDAOTxt = null;
+        private IAbstractStudentDAO studentDAOXml = null;
+        private IAbstractStudentDAO studentDAOJson = null;
 
         public Form1()
         {
@@ -34,10 +34,10 @@ namespace FileManager.Presentation.WinSite
         }
 
         private void InitializeStudentDAOs()
-        {
-            studentDAOTxt = (StudentDAOTxt)studentDAOFactory.CreateStudentDAOTxt();
-            studentDAOXml = (StudentDAOXml)studentDAOFactory.CreateStudentDAOXml();
-            studentDAOJson = (StudentDAOJson)studentDAOFactory.CreateStudentDAOJson();
+        {           
+            studentDAOTxt = studentDAOFactory.CreateStudentDAOTxt();
+            studentDAOXml = studentDAOFactory.CreateStudentDAOXml();
+            studentDAOJson = studentDAOFactory.CreateStudentDAOJson();
         }
 
         private void BtnSaveTxt_Click(object sender, EventArgs e)
