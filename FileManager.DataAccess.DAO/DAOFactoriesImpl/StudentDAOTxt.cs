@@ -25,7 +25,7 @@ namespace FileManager.DataAccess.DAO
             Student readStudent = ReadStudent();
             return readStudent;
         }       
-        public void WriteStudent(Student student)
+        private void WriteStudent(Student student)
         {
             string line = student.StudentId + "," +
                             student.Name + "," +
@@ -53,7 +53,7 @@ namespace FileManager.DataAccess.DAO
                 outputFile.Dispose();
             }
         }
-        public Student ReadStudent()
+        private Student ReadStudent()
         {
             string lastLine = File.ReadLines(FilePath).Last();
             string[] splitStudent = lastLine.Split(new char[] { ',' });
