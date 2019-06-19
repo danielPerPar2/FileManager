@@ -52,6 +52,7 @@
     <Compile Include="DAOFactoriesImpl\StudentDAOJson.cs" />
     <Compile Include="DAOFactoriesImpl\StudentDAOTxt.cs" />
     <Compile Include="DAOFactoriesImpl\StudentDAOXml.cs" />
+    <Compile Include="Singletons\VuelosSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FileManager.Common.Models\FileManager.Common.Models.csproj">
