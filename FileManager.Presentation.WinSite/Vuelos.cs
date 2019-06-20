@@ -92,6 +92,7 @@ namespace FileManager.Presentation.WinSite
             ChangeLanguage("en-GB");
             this.Text = "Flights";
             Properties.Settings.Default.Language = "en-GB";
+            //TODO: remove literal strings
         }
 
         private void SpanishToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,11 +100,7 @@ namespace FileManager.Presentation.WinSite
             ChangeLanguage("es-ES");
             this.Text = "Vuelos";
             Properties.Settings.Default.Language = "es-ES";
-        }
-
-        private void LanguageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            //TODO: remove literal strings
         }
     }
 }

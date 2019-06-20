@@ -79,7 +79,6 @@
             this.englishToolStripMenuItem,
             this.spanishToolStripMenuItem});
             this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
-            this.languageToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
             // 
             // englishToolStripMenuItem
             // 
