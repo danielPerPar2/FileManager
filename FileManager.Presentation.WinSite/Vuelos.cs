@@ -17,11 +17,9 @@ namespace FileManager.Presentation.WinSite
 
         private static VuelosSingleton vuelosSingleton = null;
 
-        private Dictionary<Airport, List<Airport>> cachedDestinations = new Dictionary<Airport, List<Airport>>();
-
         public Vuelos()
         {
-            InitializeComponent();          
+            InitializeComponent();
         }
 
         private void originCbo_SelectedIndexChanged(object sender, EventArgs e)
