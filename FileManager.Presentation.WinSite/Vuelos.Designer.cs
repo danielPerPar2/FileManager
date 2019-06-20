@@ -28,60 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vuelos));
             this.lblOrigen = new System.Windows.Forms.Label();
             this.originCbo = new System.Windows.Forms.ComboBox();
             this.lblDestino = new System.Windows.Forms.Label();
             this.destinationCbo = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblOrigen
             // 
-            this.lblOrigen.AutoSize = true;
-            this.lblOrigen.Location = new System.Drawing.Point(41, 70);
+            resources.ApplyResources(this.lblOrigen, "lblOrigen");
             this.lblOrigen.Name = "lblOrigen";
-            this.lblOrigen.Size = new System.Drawing.Size(51, 17);
-            this.lblOrigen.TabIndex = 0;
-            this.lblOrigen.Text = "Origen";
             // 
             // originCbo
             // 
+            resources.ApplyResources(this.originCbo, "originCbo");
             this.originCbo.FormattingEnabled = true;
-            this.originCbo.Location = new System.Drawing.Point(99, 70);
             this.originCbo.Name = "originCbo";
-            this.originCbo.Size = new System.Drawing.Size(188, 24);
-            this.originCbo.TabIndex = 1;
             this.originCbo.SelectedIndexChanged += new System.EventHandler(this.originCbo_SelectedIndexChanged);
             // 
             // lblDestino
             // 
-            this.lblDestino.AutoSize = true;
-            this.lblDestino.Location = new System.Drawing.Point(310, 76);
+            resources.ApplyResources(this.lblDestino, "lblDestino");
             this.lblDestino.Name = "lblDestino";
-            this.lblDestino.Size = new System.Drawing.Size(56, 17);
-            this.lblDestino.TabIndex = 2;
-            this.lblDestino.Text = "Destino";
             // 
             // destinationCbo
             // 
+            resources.ApplyResources(this.destinationCbo, "destinationCbo");
             this.destinationCbo.FormattingEnabled = true;
-            this.destinationCbo.Location = new System.Drawing.Point(372, 70);
             this.destinationCbo.Name = "destinationCbo";
-            this.destinationCbo.Size = new System.Drawing.Size(177, 24);
-            this.destinationCbo.TabIndex = 3;
             this.destinationCbo.SelectedIndexChanged += new System.EventHandler(this.destinationCbo_SelectedIndexChanged);
+            // 
+            // menuStrip1
+            // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.languageToolStripMenuItem});
+            this.menuStrip1.Name = "menuStrip1";
+            // 
+            // languageToolStripMenuItem
+            // 
+            resources.ApplyResources(this.languageToolStripMenuItem, "languageToolStripMenuItem");
+            this.languageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.englishToolStripMenuItem,
+            this.spanishToolStripMenuItem});
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            this.languageToolStripMenuItem.Click += new System.EventHandler(this.LanguageToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.EnglishToolStripMenuItem_Click);
+            // 
+            // spanishToolStripMenuItem
+            // 
+            resources.ApplyResources(this.spanishToolStripMenuItem, "spanishToolStripMenuItem");
+            this.spanishToolStripMenuItem.Name = "spanishToolStripMenuItem";
+            this.spanishToolStripMenuItem.Click += new System.EventHandler(this.SpanishToolStripMenuItem_Click);
             // 
             // Vuelos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 176);
             this.Controls.Add(this.destinationCbo);
             this.Controls.Add(this.lblDestino);
             this.Controls.Add(this.originCbo);
             this.Controls.Add(this.lblOrigen);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Vuelos";
-            this.Text = "Vuelos";
             this.Load += new System.EventHandler(this.Vuelos_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,5 +118,9 @@
         private System.Windows.Forms.ComboBox originCbo;
         private System.Windows.Forms.Label lblDestino;
         private System.Windows.Forms.ComboBox destinationCbo;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spanishToolStripMenuItem;
     }
 }

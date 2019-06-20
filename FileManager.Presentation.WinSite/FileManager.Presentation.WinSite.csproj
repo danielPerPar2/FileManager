@@ -90,6 +90,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vuelos.en.resx">
+      <DependentUpon>Vuelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vuelos.es.resx">
+      <DependentUpon>Vuelos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vuelos.resx">
       <DependentUpon>Vuelos.cs</DependentUpon>
     </EmbeddedResource>

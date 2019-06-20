@@ -5,8 +5,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,11 +17,13 @@ namespace FileManager.Presentation.WinSite
 {
     public partial class Vuelos : Form
     {
-
         private static VuelosSingleton vuelosSingleton = null;
+
+        public string language = Properties.Settings.Default.Language;
 
         public Vuelos()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
             InitializeComponent();
         }
 
@@ -71,6 +76,34 @@ namespace FileManager.Presentation.WinSite
             }
             destinationCbo.DataSource = airportNames;
             destinationCbo.SelectedItem = 0;
+        }
+
+        private void ChangeLanguage(string lang)
+        {
+            foreach(Control c in  this.Controls)
+            {
+                ComponentResourceManager resources = new ComponentResourceManager(typeof(Vuelos));
+                resources.ApplyResources(c, c.Name, new CultureInfo(lang));
+            }  
+        }
+
+        private void EnglishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("en-GB");
+            this.Text = "Flights";
+            Properties.Settings.Default.Language = "en-GB";
+        }
+
+        private void SpanishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("es-ES");
+            this.Text = "Vuelos";
+            Properties.Settings.Default.Language = "es-ES";
+        }
+
+        private void LanguageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
