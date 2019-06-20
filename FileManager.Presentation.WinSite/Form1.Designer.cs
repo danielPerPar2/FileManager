@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnSaveTxt = new System.Windows.Forms.Button();
             this.lblStudentId = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -39,118 +40,106 @@
             this.txtDateOfBirth = new System.Windows.Forms.TextBox();
             this.btnSaveXML = new System.Windows.Forms.Button();
             this.btnSaveJSON = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.LanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.spanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSaveTxt
             // 
-            this.btnSaveTxt.Location = new System.Drawing.Point(24, 238);
-            this.btnSaveTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            resources.ApplyResources(this.btnSaveTxt, "btnSaveTxt");
             this.btnSaveTxt.Name = "btnSaveTxt";
-            this.btnSaveTxt.Size = new System.Drawing.Size(70, 33);
-            this.btnSaveTxt.TabIndex = 0;
-            this.btnSaveTxt.Text = "SaveTxt";
             this.btnSaveTxt.UseVisualStyleBackColor = true;
             this.btnSaveTxt.Click += new System.EventHandler(this.BtnSaveTxt_Click);
             // 
             // lblStudentId
             // 
-            this.lblStudentId.AutoSize = true;
-            this.lblStudentId.Location = new System.Drawing.Point(26, 24);
-            this.lblStudentId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.lblStudentId, "lblStudentId");
             this.lblStudentId.Name = "lblStudentId";
-            this.lblStudentId.Size = new System.Drawing.Size(53, 13);
-            this.lblStudentId.TabIndex = 1;
-            this.lblStudentId.Text = "StudentId";
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(26, 72);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.lblName, "lblName");
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
-            this.lblName.TabIndex = 2;
-            this.lblName.Text = "Name";
             // 
             // lblSurname
             // 
-            this.lblSurname.AutoSize = true;
-            this.lblSurname.Location = new System.Drawing.Point(26, 126);
-            this.lblSurname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.lblSurname, "lblSurname");
             this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(49, 13);
-            this.lblSurname.TabIndex = 3;
-            this.lblSurname.Text = "Surname";
             // 
             // lblDateOfBirth
             // 
-            this.lblDateOfBirth.AutoSize = true;
-            this.lblDateOfBirth.Location = new System.Drawing.Point(26, 174);
-            this.lblDateOfBirth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.lblDateOfBirth, "lblDateOfBirth");
             this.lblDateOfBirth.Name = "lblDateOfBirth";
-            this.lblDateOfBirth.Size = new System.Drawing.Size(68, 13);
-            this.lblDateOfBirth.TabIndex = 4;
-            this.lblDateOfBirth.Text = "Date Of Birth";
             // 
             // txtStudentId
             // 
-            this.txtStudentId.Location = new System.Drawing.Point(105, 20);
-            this.txtStudentId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            resources.ApplyResources(this.txtStudentId, "txtStudentId");
             this.txtStudentId.Name = "txtStudentId";
-            this.txtStudentId.Size = new System.Drawing.Size(76, 20);
-            this.txtStudentId.TabIndex = 5;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(105, 67);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            resources.ApplyResources(this.txtName, "txtName");
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(76, 20);
-            this.txtName.TabIndex = 6;
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(105, 122);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            resources.ApplyResources(this.txtSurname, "txtSurname");
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(76, 20);
-            this.txtSurname.TabIndex = 7;
             // 
             // txtDateOfBirth
             // 
-            this.txtDateOfBirth.Location = new System.Drawing.Point(105, 171);
-            this.txtDateOfBirth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            resources.ApplyResources(this.txtDateOfBirth, "txtDateOfBirth");
             this.txtDateOfBirth.Name = "txtDateOfBirth";
-            this.txtDateOfBirth.Size = new System.Drawing.Size(76, 20);
-            this.txtDateOfBirth.TabIndex = 8;
             // 
             // btnSaveXML
             // 
-            this.btnSaveXML.Location = new System.Drawing.Point(116, 238);
-            this.btnSaveXML.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            resources.ApplyResources(this.btnSaveXML, "btnSaveXML");
             this.btnSaveXML.Name = "btnSaveXML";
-            this.btnSaveXML.Size = new System.Drawing.Size(74, 33);
-            this.btnSaveXML.TabIndex = 9;
-            this.btnSaveXML.Text = "SaveXML";
             this.btnSaveXML.UseVisualStyleBackColor = true;
             this.btnSaveXML.Click += new System.EventHandler(this.BtnSaveXML_Click);
             // 
             // btnSaveJSON
             // 
-            this.btnSaveJSON.Location = new System.Drawing.Point(209, 238);
-            this.btnSaveJSON.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            resources.ApplyResources(this.btnSaveJSON, "btnSaveJSON");
             this.btnSaveJSON.Name = "btnSaveJSON";
-            this.btnSaveJSON.Size = new System.Drawing.Size(80, 33);
-            this.btnSaveJSON.TabIndex = 10;
-            this.btnSaveJSON.Text = "SaveJSON";
             this.btnSaveJSON.UseVisualStyleBackColor = true;
             this.btnSaveJSON.Click += new System.EventHandler(this.BtnSaveJSON_Click);
             // 
+            // menuStrip1
+            // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LanguageToolStripMenuItem});
+            this.menuStrip1.Name = "menuStrip1";
+            // 
+            // LanguageToolStripMenuItem
+            // 
+            resources.ApplyResources(this.LanguageToolStripMenuItem, "LanguageToolStripMenuItem");
+            this.LanguageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.englishToolStripMenuItem1,
+            this.spanishToolStripMenuItem});
+            this.LanguageToolStripMenuItem.Name = "LanguageToolStripMenuItem";
+            // 
+            // englishToolStripMenuItem1
+            // 
+            resources.ApplyResources(this.englishToolStripMenuItem1, "englishToolStripMenuItem1");
+            this.englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
+            this.englishToolStripMenuItem1.Click += new System.EventHandler(this.EnglishToolStripMenuItem1_Click);
+            // 
+            // spanishToolStripMenuItem
+            // 
+            resources.ApplyResources(this.spanishToolStripMenuItem, "spanishToolStripMenuItem");
+            this.spanishToolStripMenuItem.Name = "spanishToolStripMenuItem";
+            this.spanishToolStripMenuItem.Click += new System.EventHandler(this.SpanishToolStripMenuItem_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 297);
             this.Controls.Add(this.btnSaveJSON);
             this.Controls.Add(this.btnSaveXML);
             this.Controls.Add(this.txtDateOfBirth);
@@ -162,9 +151,11 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblStudentId);
             this.Controls.Add(this.btnSaveTxt);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,6 +174,10 @@
         private System.Windows.Forms.TextBox txtDateOfBirth;
         private System.Windows.Forms.Button btnSaveXML;
         private System.Windows.Forms.Button btnSaveJSON;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem LanguageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem spanishToolStripMenuItem;
     }
 }
 

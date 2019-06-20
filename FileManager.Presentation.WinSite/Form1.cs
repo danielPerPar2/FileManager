@@ -7,8 +7,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +18,8 @@ namespace FileManager.Presentation.WinSite
 {
     public partial class Form1 : Form
     {
+        public string language = Properties.Settings.Default.Language;
+
         private IAbstractStudentDAOFactory studentDAOFactory = null;
         
         private IAbstractStudentDAO studentDAOTxt = null;
@@ -24,6 +28,8 @@ namespace FileManager.Presentation.WinSite
 
         public Form1()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+
             InitializeComponent();
             InitializeDAOFactory();
             InitializeStudentDAOs();               }
@@ -90,6 +96,27 @@ namespace FileManager.Presentation.WinSite
             //TODO: Check if the save operation is OK, otherwise show error and keep form data.
             ClearFormFields();
             ShowPopUp();
+        }       
+
+        private void EnglishToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("en-GB");
+            Properties.Settings.Default.Language = "en-GB";
+        }
+
+        private void SpanishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("es-ES");
+            Properties.Settings.Default.Language = "es-ES";
+        }
+
+        private void ChangeLanguage(string language)
+        {
+            foreach(Control c in this.Controls)
+            {
+                ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
+                resources.ApplyResources(c, c.Name, new CultureInfo(language));
+            } 
         }
     }
 }

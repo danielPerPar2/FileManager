@@ -69,6 +69,12 @@
     <Compile Include="Vuelos.Designer.cs">
       <DependentUpon>Vuelos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form1.en.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.es.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Popup.resx">
       <DependentUpon>Popup.cs</DependentUpon>
     </EmbeddedResource>
