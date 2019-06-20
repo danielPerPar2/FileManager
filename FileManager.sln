@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{FE0511EE-0F32-422C-B083-5F93926D4F8A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManager.DataAccess.DAO.Integration.Test", "FileManager.DataAccess.DAO.Integration.Test\FileManager.DataAccess.DAO.Integration.Test.csproj", "{F648D2A1-09CA-4D25-8654-ED245F130063}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{FE0511EE-0F32-422C-B083-5F93926D4F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE0511EE-0F32-422C-B083-5F93926D4F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE0511EE-0F32-422C-B083-5F93926D4F8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F648D2A1-09CA-4D25-8654-ED245F130063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F648D2A1-09CA-4D25-8654-ED245F130063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F648D2A1-09CA-4D25-8654-ED245F130063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F648D2A1-09CA-4D25-8654-ED245F130063}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

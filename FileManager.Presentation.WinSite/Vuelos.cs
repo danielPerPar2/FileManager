@@ -15,7 +15,7 @@ namespace FileManager.Presentation.WinSite
     public partial class Vuelos : Form
     {
 
-        private  VuelosSingleton vuelosSingleton = null;
+        private static VuelosSingleton vuelosSingleton = null;
 
         public Vuelos()
         {
@@ -36,6 +36,7 @@ namespace FileManager.Presentation.WinSite
         private void Vuelos_Load(object sender, EventArgs e)
         {
             vuelosSingleton = VuelosSingleton.Instance;
+
             InitializeOriginComboBox();
 
             string selectedCity = originCbo.SelectedItem.ToString();
@@ -44,12 +45,12 @@ namespace FileManager.Presentation.WinSite
 
         private void InitializeOriginComboBox()
         {
-            int size = vuelosSingleton.FlightsDictionary.Keys.Count;
+            int size = VuelosSingleton.FlightsDictionary.Keys.Count;
             string[] items = new string[size];
 
             for(int i = 0; i < size; ++i)
             {
-                items[i] = vuelosSingleton.FlightsDictionary.Keys.ElementAt(i).Name;
+                items[i] = VuelosSingleton.FlightsDictionary.Keys.ElementAt(i).Name;
             }
             originCbo.DataSource = items;
             originCbo.SelectedIndex = 0;
@@ -58,7 +59,7 @@ namespace FileManager.Presentation.WinSite
         private void InitializeDestinationCombobox(string cityName)
         {
             List<Airport> airports;
-            bool found = vuelosSingleton.FlightsDictionary.TryGetValue(new Airport(cityName), out airports);
+            bool found = VuelosSingleton.FlightsDictionary.TryGetValue(new Airport(cityName), out airports);
             if (!found)
             {
                 throw new Exception("No airports");
