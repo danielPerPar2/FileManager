@@ -17,9 +17,11 @@ namespace FileManager.Presentation.WinSite
 
         private static VuelosSingleton vuelosSingleton = null;
 
+        private Dictionary<Airport, List<Airport>> cachedDestinations = new Dictionary<Airport, List<Airport>>();
+
         public Vuelos()
         {
-            InitializeComponent();
+            InitializeComponent();          
         }
 
         private void originCbo_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,19 +60,77 @@ namespace FileManager.Presentation.WinSite
 
         private void InitializeDestinationCombobox(string cityName)
         {
-            List<Airport> airports;
-            bool found = VuelosSingleton.FlightsDictionary.TryGetValue(new Airport(cityName), out airports);
-            if (!found)
+            if (FoundCachedDestination(cityName, out List<Airport> destinations))
             {
-                throw new Exception("No airports");
+                destinationCbo.DataSource = destinations;
+                destinationCbo.SelectedItem = 0;
             }
-            string[] airportNames = new string[airports.Count];
-            for(int i = 0; i < airportNames.Length; ++i)
+            else
+            {                
+                List<Airport> airports;
+                bool found = GetDestinations(cityName, out airports);
+                if (!found)
+                {
+                    throw new Exception("No airports");
+                }
+
+                List<string> airportNames = CreateDestinations(airports);
+
+                destinationCbo.DataSource = airportNames;
+                destinationCbo.SelectedItem = 0;
+              
+                cachedDestinations.Add(new Airport(cityName), airports);
+            }
+        }
+
+        private bool FoundCachedDestination(string originCityName, out List<Airport> cachedDestination)
+        {
+            List<Airport> destination;
+            bool isDestinationCached = GetCachedDestinations(originCityName, out destination);
+            if(isDestinationCached)
             {
-                airportNames[i] = airports[i].Name;
+                cachedDestination = destination;
+                return true;
             }
-            destinationCbo.DataSource = airportNames;
-            destinationCbo.SelectedItem = 0;
+            cachedDestination = new List<Airport>();
+            return false;
+        }
+
+        private bool GetCachedDestinations(string originCityName, out List<Airport> destination)
+        {
+            try
+            {
+                return cachedDestinations.TryGetValue(new Airport(originCityName), out destination);
+            }
+            catch(ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        private bool GetDestinations(string originCityName, out List<Airport> destination)
+        {
+            try
+            {
+                return VuelosSingleton.FlightsDictionary.TryGetValue(new Airport(originCityName), out destination);
+            }
+            catch(ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        private List<string> CreateDestinations(List<Airport> airports)
+        {
+            List<string> result = new List<string>();
+            foreach(Airport airport in airports)
+            {
+                result.Add(airport.Name);
+            }
+            
+            return result;
         }
     }
 }

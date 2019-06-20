@@ -14,9 +14,16 @@ namespace FileManager.DataAccess.DAO.Integration.Test
             VuelosSingleton vuelosSingletonsSecond = VuelosSingleton.Instance;
 
             Assert.IsTrue(vuelosSingletonsFirst.Id.ToString() == vuelosSingletonsSecond.Id.ToString());
+        }
 
+        [TestMethod]
+        public void TestVuelosSingletonWithStaticConstuctors()
+        {
+            //TODO: this static constructor singleton is not working. Fix this
+            VuelosSingletonWithStaticConstructor vuelosSingletonsFirst = VuelosSingletonWithStaticConstructor.Instance;
+            VuelosSingletonWithStaticConstructor vuelosSingletonsSecond = VuelosSingletonWithStaticConstructor.Instance;
 
-
+            Assert.IsTrue(vuelosSingletonsFirst.Id.ToString() == vuelosSingletonsSecond.Id.ToString());
         }
     }
 }
