@@ -93,7 +93,7 @@ namespace FileManager.DataAccess.DAO
                 throw;
             }
         }
-        public Student Update(int id)
+        public Student Update(int id, Student updatedStudent)
         {
             throw new NotImplementedException();
         }

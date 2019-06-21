@@ -71,7 +71,6 @@ namespace FileManager.DataAccess.DAO
             }
             return null;
         }
-
         private int ParseString(string idString)
         {
             try
@@ -97,9 +96,54 @@ namespace FileManager.DataAccess.DAO
                 throw;
             }
         }
-        public Student Update(int id)
+        public Student Update(int id, Student updatedStudent)
         {
-            throw new NotImplementedException();
+            StreamReader streamReader = new StreamReader(FilePath);
+            string line = null;
+            List<Student> readStudents = new List<Student>();
+
+            //leo todos los students
+            while(streamReader.Peek() >= 0)
+            {
+                line = streamReader.ReadLine();
+                string[] split = line.Split(new char[] { ','});
+
+                Student student = new Student(Int32.Parse(split[0]),
+                    split[1],
+                    split[2],
+                    Convert.ToDateTime(split[3]));
+
+                readStudents.Add(student);
+            }
+            streamReader.Dispose(); //arreglar esto
+
+            Student studentToUpdate = FindById(id);
+
+            //busco el que tengo que actualizar
+            int position = 0;
+            for(int i = 0; i < readStudents.Count; ++i)
+            {
+                if (readStudents[i].StudentId == studentToUpdate.StudentId)
+                {
+                    position = i;
+                    break;
+                }
+            }
+            //actualizo
+            readStudents[position].Name = studentToUpdate.Name;
+            readStudents[position].Surname = studentToUpdate.Surname;
+            readStudents[position].DateOfBirth = studentToUpdate.DateOfBirth;
+
+            //sobreescribo el archivo
+            StreamWriter streamWriter = new StreamWriter(FilePath, false);
+            string studentsString = string.Empty;
+            foreach(Student student in readStudents)
+            {
+                studentsString += student.ToString();
+            }
+            streamWriter.Write(studentsString);
+            streamWriter.Dispose(); //arreglar esto
+            return studentToUpdate;
         }
     }
 }

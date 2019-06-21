@@ -13,6 +13,6 @@ namespace FileManager.DataAccess.DAO
 
         Student FindById(int id);
 
-        Student Update(int id);
+        Student Update(int id, Student updatedStudent);
     }
 }

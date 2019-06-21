@@ -104,7 +104,7 @@ namespace FileManager.DataAccess.DAO
             return null;
         }
 
-        public Student Update(int id)
+        public Student Update(int id, Student updatedStudent)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileManager.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,15 @@ namespace FileManager.Common.Models
         {
             string nameSurnameBirth = Name + Surname + DateOfBirth.Day.ToString();
             return nameSurnameBirth.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return StudentId + "," + 
+                Name + "," + 
+                Surname + "," + 
+                DateUtilities.DateTimeToStringES(DateOfBirth) + 
+                "\n";
         }
     }
 }
