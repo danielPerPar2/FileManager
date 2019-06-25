@@ -117,7 +117,7 @@ namespace FileManager.DataAccess.DAO
                 }
                 streamWriter.Write(studentsString);
                 streamWriter.Dispose();
-                return studentToUpdate;
+                return updatedStudent;
             }
             return null;
         }

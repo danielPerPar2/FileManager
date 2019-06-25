@@ -67,6 +67,12 @@ namespace FileManager.DataAccess.DAO
 
         public Student FindById(int id)
         {
+            if (!File.Exists(FilePath))
+            {
+                throw new Exception("No file found:" + FilePath);
+            }
+            xDocument = XDocument.Load(FilePath);
+
             var student = from element in xDocument.Element("students").Elements()
                           where element.Element("id").Value.Equals(id.ToString())
                           select element;
@@ -95,7 +101,21 @@ namespace FileManager.DataAccess.DAO
         }
         public Student Update(int id, Student updatedStudent)
         {
-            throw new NotImplementedException();
+            if(!File.Exists(FilePath))
+            {
+                throw new Exception("No file found " + FilePath);
+            }
+            xDocument = XDocument.Load(FilePath);
+
+            var studentToUpdate = from student in xDocument.Elements("students").Elements()
+                                  where student.Element("id").Value.Equals(id.ToString())
+                                  select student;
+
+            GetFirstElement(studentToUpdate).Element("name").Value = updatedStudent.Name;
+            GetFirstElement(studentToUpdate).Element("surname").Value = updatedStudent.Surname;
+            GetFirstElement(studentToUpdate).Element("dateOfBirth").Value = DateUtilities.DateTimeToStringES(updatedStudent.DateOfBirth);
+            xDocument.Save(FilePath);
+            return updatedStudent;
         }
-    }
+    } 
 }
