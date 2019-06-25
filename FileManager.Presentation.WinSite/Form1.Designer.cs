@@ -45,6 +45,8 @@
             this.spanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUpdateTxt = new System.Windows.Forms.Button();
             this.btnFindStudentTxt = new System.Windows.Forms.Button();
+            this.btnBuscarXml = new System.Windows.Forms.Button();
+            this.btnUpdateXml = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -203,11 +205,33 @@
             this.btnFindStudentTxt.UseVisualStyleBackColor = true;
             this.btnFindStudentTxt.Click += new System.EventHandler(this.BtnFindStudent_Click);
             // 
+            // btnBuscarXml
+            // 
+            this.btnBuscarXml.Location = new System.Drawing.Point(155, 350);
+            this.btnBuscarXml.Name = "btnBuscarXml";
+            this.btnBuscarXml.Size = new System.Drawing.Size(99, 39);
+            this.btnBuscarXml.TabIndex = 14;
+            this.btnBuscarXml.Text = "BuscarXml";
+            this.btnBuscarXml.UseVisualStyleBackColor = true;
+            this.btnBuscarXml.Click += new System.EventHandler(this.BtnBuscarXml_Click);
+            // 
+            // btnUpdateXml
+            // 
+            this.btnUpdateXml.Location = new System.Drawing.Point(155, 410);
+            this.btnUpdateXml.Name = "btnUpdateXml";
+            this.btnUpdateXml.Size = new System.Drawing.Size(99, 39);
+            this.btnUpdateXml.TabIndex = 15;
+            this.btnUpdateXml.Text = "UpdateXml";
+            this.btnUpdateXml.UseVisualStyleBackColor = true;
+            this.btnUpdateXml.Click += new System.EventHandler(this.BtnUpdateXml_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 521);
+            this.Controls.Add(this.btnUpdateXml);
+            this.Controls.Add(this.btnBuscarXml);
             this.Controls.Add(this.btnFindStudentTxt);
             this.Controls.Add(this.btnUpdateTxt);
             this.Controls.Add(this.btnSaveJSON);
@@ -252,6 +276,8 @@
         private System.Windows.Forms.ToolStripMenuItem spanishToolStripMenuItem;
         private System.Windows.Forms.Button btnUpdateTxt;
         private System.Windows.Forms.Button btnFindStudentTxt;
+        private System.Windows.Forms.Button btnBuscarXml;
+        private System.Windows.Forms.Button btnUpdateXml;
     }
 }
 

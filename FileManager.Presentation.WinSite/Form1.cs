@@ -48,11 +48,7 @@ namespace FileManager.Presentation.WinSite
 
         private void BtnSaveTxt_Click(object sender, EventArgs e)
         {
-            Student student = CreateStudentFromFields();
-            studentDAOTxt.Add(student);
-            //TODO: Check if the save operation is OK, otherwise show error and keep form data.
-            ClearFormFields();
-            ShowPopUp("Estudiante añadido");
+            BtnSave(studentDAOTxt);
         }
 
         private Student CreateStudentFromFields()
@@ -82,20 +78,12 @@ namespace FileManager.Presentation.WinSite
 
         private void BtnSaveXML_Click(object sender, EventArgs e)
         {
-            Student student = CreateStudentFromFields();
-            studentDAOXml.Add(student);
-            //TODO: Check if the save operation is OK, otherwise show error and keep form data.
-            ClearFormFields();
-            ShowPopUp("Estudiante añadido");
+            BtnSave(studentDAOXml);
         }
 
         private void BtnSaveJSON_Click(object sender, EventArgs e)
         {
-            Student student = CreateStudentFromFields();
-            studentDAOJson.Add(student);
-            //TODO: Check if the save operation is OK, otherwise show error and keep form data.
-            ClearFormFields();
-            ShowPopUp("Estudiante añadido");
+            BtnSave(studentDAOJson);
         }       
 
         private void EnglishToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -121,24 +109,53 @@ namespace FileManager.Presentation.WinSite
 
         private void BtnUpdateTxt_Click(object sender, EventArgs e)
         {
-            Student student = CreateStudentFromFields();
-            studentDAOTxt.Update(student.StudentId, student);
-            //TODO: Check if the save operation is OK, otherwise show error and keep form data.
-            ClearFormFields();
-            ShowPopUp("Estudiante actualizado");
+            BtnUpdate(studentDAOTxt);
         }
 
         private void BtnFindStudent_Click(object sender, EventArgs e)
         {
+            BtnFind(studentDAOTxt);           
+        }
+
+        private void BtnBuscarXml_Click(object sender, EventArgs e)
+        {
+            BtnFind(studentDAOXml);           
+        }
+
+        private void BtnUpdateXml_Click(object sender, EventArgs e)
+        {
+            BtnUpdate(studentDAOXml);
+        }
+
+        private void BtnSave(IAbstractStudentDAO dao)
+        {
+            Student student = CreateStudentFromFields();
+            dao.Add(student);
+            //TODO: Check if the save operation is OK, otherwise show error and keep form data.
+            ClearFormFields();
+            ShowPopUp("Estudiante añadido");
+        }
+
+        private void BtnFind(IAbstractStudentDAO dao)
+        {
             int studentId = Int32.Parse(txtStudentId.Text);
-            Student foundStudent = studentDAOTxt.FindById(studentId);
-            if(foundStudent != null)
+            Student foundStudent = dao.FindById(studentId);
+            if (foundStudent != null)
             {
                 txtStudentId.Text = foundStudent.StudentId.ToString();
                 txtName.Text = foundStudent.Name;
                 txtSurname.Text = foundStudent.Surname;
                 txtDateOfBirth.Text = DateUtilities.DateTimeToStringES(foundStudent.DateOfBirth);
             }
+        }
+
+        private void BtnUpdate(IAbstractStudentDAO dao)
+        {
+            Student student = CreateStudentFromFields();
+            dao.Update(student.StudentId, student);
+            //TODO: Check if the save operation is OK, otherwise show error and keep form data.
+            ClearFormFields();
+            ShowPopUp("Estudiante actualizado");
         }
     }
 }
