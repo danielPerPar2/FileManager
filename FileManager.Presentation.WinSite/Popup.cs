@@ -12,9 +12,10 @@ namespace FileManager.Presentation.WinSite
 {
     public partial class Popup : Form
     {
-        public Popup()
+        public Popup(string message)
         {
             InitializeComponent();
+            lblMessage.Text = message;
         }
     }
 }

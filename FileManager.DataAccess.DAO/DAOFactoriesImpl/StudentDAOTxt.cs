@@ -98,15 +98,41 @@ namespace FileManager.DataAccess.DAO
         }
         public Student Update(int id, Student updatedStudent)
         {
-            StreamReader streamReader = new StreamReader(FilePath);
+            List<Student> readStudents = ReadAllStudents();
+            Student studentToUpdate = FindById(id);
+            int studentIndex = readStudents.IndexOf(studentToUpdate);
+
+            if (studentIndex != -1)
+            {
+                readStudents[studentIndex].Name = updatedStudent.Name;
+                readStudents[studentIndex].Surname = updatedStudent.Surname;
+                readStudents[studentIndex].DateOfBirth = updatedStudent.DateOfBirth;
+
+                //sobreescribo el archivo
+                StreamWriter streamWriter = GetWriter();
+                string studentsString = string.Empty;
+                foreach (Student student in readStudents)
+                {
+                    studentsString += student.ToString();
+                }
+                streamWriter.Write(studentsString);
+                streamWriter.Dispose();
+                return studentToUpdate;
+            }
+            return null;
+        }
+        
+        private List<Student> ReadAllStudents()
+        {
+            StreamReader streamReader = GetReader();         
             string line = null;
             List<Student> readStudents = new List<Student>();
 
             //leo todos los students
-            while(streamReader.Peek() >= 0)
+            while (streamReader.Peek() >= 0)
             {
                 line = streamReader.ReadLine();
-                string[] split = line.Split(new char[] { ','});
+                string[] split = line.Split(new char[] { ',' });
 
                 Student student = new Student(Int32.Parse(split[0]),
                     split[1],
@@ -115,35 +141,43 @@ namespace FileManager.DataAccess.DAO
 
                 readStudents.Add(student);
             }
-            streamReader.Dispose(); //arreglar esto
+            streamReader.Dispose();
 
-            Student studentToUpdate = FindById(id);
-
-            //busco el que tengo que actualizar
-            int position = 0;
-            for(int i = 0; i < readStudents.Count; ++i)
-            {
-                if (readStudents[i].StudentId == studentToUpdate.StudentId)
-                {
-                    position = i;
-                    break;
-                }
-            }
-            //actualizo
-            readStudents[position].Name = studentToUpdate.Name;
-            readStudents[position].Surname = studentToUpdate.Surname;
-            readStudents[position].DateOfBirth = studentToUpdate.DateOfBirth;
-
-            //sobreescribo el archivo
-            StreamWriter streamWriter = new StreamWriter(FilePath, false);
-            string studentsString = string.Empty;
-            foreach(Student student in readStudents)
-            {
-                studentsString += student.ToString();
-            }
-            streamWriter.Write(studentsString);
-            streamWriter.Dispose(); //arreglar esto
-            return studentToUpdate;
+            return readStudents;
         }
+
+        private StreamReader GetReader()
+        {
+            StreamReader streamReader = null;
+            try
+            {
+                streamReader = new StreamReader(FilePath);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                streamReader.Dispose();
+                throw;
+            }
+            return streamReader;
+        }
+
+        private StreamWriter GetWriter()
+        {
+            StreamWriter streamWriter = null;
+            try
+            {
+                streamWriter = new StreamWriter(FilePath, false);
+            }
+            catch(Exception ex)
+            {
+                Console.Write(ex.Message);
+                streamWriter.Dispose();
+                throw;
+            }
+            return streamWriter;
+        }
+
+
     }
 }

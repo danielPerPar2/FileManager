@@ -52,7 +52,7 @@ namespace FileManager.Presentation.WinSite
             studentDAOTxt.Add(student);
             //TODO: Check if the save operation is OK, otherwise show error and keep form data.
             ClearFormFields();
-            ShowPopUp();
+            ShowPopUp("Estudiante añadido");
         }
 
         private Student CreateStudentFromFields()
@@ -73,9 +73,9 @@ namespace FileManager.Presentation.WinSite
             }
         }
 
-        private void ShowPopUp()
+        private void ShowPopUp(string message)
         {
-            Form popup = new Popup();
+            Form popup = new Popup(message);
             popup.ShowDialog();
             popup.Dispose();
         }
@@ -86,7 +86,7 @@ namespace FileManager.Presentation.WinSite
             studentDAOXml.Add(student);
             //TODO: Check if the save operation is OK, otherwise show error and keep form data.
             ClearFormFields();
-            ShowPopUp();
+            ShowPopUp("Estudiante añadido");
         }
 
         private void BtnSaveJSON_Click(object sender, EventArgs e)
@@ -95,7 +95,7 @@ namespace FileManager.Presentation.WinSite
             studentDAOJson.Add(student);
             //TODO: Check if the save operation is OK, otherwise show error and keep form data.
             ClearFormFields();
-            ShowPopUp();
+            ShowPopUp("Estudiante añadido");
         }       
 
         private void EnglishToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -117,6 +117,28 @@ namespace FileManager.Presentation.WinSite
                 ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
                 resources.ApplyResources(c, c.Name, new CultureInfo(language));
             } 
+        }
+
+        private void BtnUpdateTxt_Click(object sender, EventArgs e)
+        {
+            Student student = CreateStudentFromFields();
+            studentDAOTxt.Update(student.StudentId, student);
+            //TODO: Check if the save operation is OK, otherwise show error and keep form data.
+            ClearFormFields();
+            ShowPopUp("Estudiante actualizado");
+        }
+
+        private void BtnFindStudent_Click(object sender, EventArgs e)
+        {
+            int studentId = Int32.Parse(txtStudentId.Text);
+            Student foundStudent = studentDAOTxt.FindById(studentId);
+            if(foundStudent != null)
+            {
+                txtStudentId.Text = foundStudent.StudentId.ToString();
+                txtName.Text = foundStudent.Name;
+                txtSurname.Text = foundStudent.Surname;
+                txtDateOfBirth.Text = DateUtilities.DateTimeToStringES(foundStudent.DateOfBirth);
+            }
         }
     }
 }
