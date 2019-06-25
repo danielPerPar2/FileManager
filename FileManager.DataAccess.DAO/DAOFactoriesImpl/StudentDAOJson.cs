@@ -106,7 +106,21 @@ namespace FileManager.DataAccess.DAO
 
         public Student Update(int id, Student updatedStudent)
         {
-            throw new NotImplementedException();
+            string jsonString = ReadJsonFile();
+            List<Student> students = JsonConvert.DeserializeObject<List<Student>>(jsonString, settings);
+            int index = students.FindIndex(student => student.StudentId == id);
+            if(index == -1)
+            {               
+                throw new Exception(String.Format("No student in the file with id {0}", id));
+            }
+            students[index].Name = updatedStudent.Name;
+            students[index].Surname = updatedStudent.Surname;
+            students[index].DateOfBirth = updatedStudent.DateOfBirth;
+
+            jsonString = JsonConvert.SerializeObject(students, settings);
+            WriteJsonFile(jsonString);
+
+            return updatedStudent;
         }
     }
 }

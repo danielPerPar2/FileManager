@@ -157,5 +157,15 @@ namespace FileManager.Presentation.WinSite
             ClearFormFields();
             ShowPopUp("Estudiante actualizado");
         }
+
+        private void BtnFindJson_Click(object sender, EventArgs e)
+        {
+            BtnFind(studentDAOJson);
+        }
+
+        private void BtnUpdateJson_Click(object sender, EventArgs e)
+        {
+            BtnUpdate(studentDAOJson);
+        }
     }
 }

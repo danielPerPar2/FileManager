@@ -47,6 +47,8 @@
             this.btnFindStudentTxt = new System.Windows.Forms.Button();
             this.btnBuscarXml = new System.Windows.Forms.Button();
             this.btnUpdateXml = new System.Windows.Forms.Button();
+            this.btnFindJson = new System.Windows.Forms.Button();
+            this.btnUpdateJson = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -225,11 +227,33 @@
             this.btnUpdateXml.UseVisualStyleBackColor = true;
             this.btnUpdateXml.Click += new System.EventHandler(this.BtnUpdateXml_Click);
             // 
+            // btnFindJson
+            // 
+            this.btnFindJson.Location = new System.Drawing.Point(279, 350);
+            this.btnFindJson.Name = "btnFindJson";
+            this.btnFindJson.Size = new System.Drawing.Size(99, 39);
+            this.btnFindJson.TabIndex = 16;
+            this.btnFindJson.Text = "BuscarJson";
+            this.btnFindJson.UseVisualStyleBackColor = true;
+            this.btnFindJson.Click += new System.EventHandler(this.BtnFindJson_Click);
+            // 
+            // btnUpdateJson
+            // 
+            this.btnUpdateJson.Location = new System.Drawing.Point(279, 410);
+            this.btnUpdateJson.Name = "btnUpdateJson";
+            this.btnUpdateJson.Size = new System.Drawing.Size(99, 39);
+            this.btnUpdateJson.TabIndex = 17;
+            this.btnUpdateJson.Text = "UpdateJson";
+            this.btnUpdateJson.UseVisualStyleBackColor = true;
+            this.btnUpdateJson.Click += new System.EventHandler(this.BtnUpdateJson_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 521);
+            this.Controls.Add(this.btnUpdateJson);
+            this.Controls.Add(this.btnFindJson);
             this.Controls.Add(this.btnUpdateXml);
             this.Controls.Add(this.btnBuscarXml);
             this.Controls.Add(this.btnFindStudentTxt);
@@ -278,6 +302,8 @@
         private System.Windows.Forms.Button btnFindStudentTxt;
         private System.Windows.Forms.Button btnBuscarXml;
         private System.Windows.Forms.Button btnUpdateXml;
+        private System.Windows.Forms.Button btnFindJson;
+        private System.Windows.Forms.Button btnUpdateJson;
     }
 }
 
